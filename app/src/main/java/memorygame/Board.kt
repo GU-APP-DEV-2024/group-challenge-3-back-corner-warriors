@@ -4,7 +4,8 @@ class Board() {
     //Constructor to create board of different sizes.
     // Assign
     private val availableCards = arrayOf<Card>(Card('c', "a"), Card('h', "10"), Card('d', "3"))
-    private var cards: Array<Card> = emptyArray<Card>()
+    private var cards: Array<Card> = arrayOf<Card>(Card('c', "a"), Card('h', "10"), Card('d', "3"),
+        Card('c', "a"), Card('h', "10"), Card('d', "3"))
     private var suits: Array<Char> = arrayOf<Char>('c', 'h', 'd', 's')
     private var ranks: Array<String> = arrayOf<String>("a", "2", "3", "4", "5", "6", "7", "8", "9", "10", "j", "q", "k")
 
@@ -21,7 +22,7 @@ class Board() {
     init {
         for(i in 0..2){
             cards[2*i] = availableCards.random()
-            cards[2*i+1] = availableCards.random()
+            cards[(2*i)+1] = cards[2*i]
         }
         cards.shuffle()
     }
